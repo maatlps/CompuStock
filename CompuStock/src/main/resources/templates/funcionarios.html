@@ -16,7 +16,7 @@
             text-align: center;
             padding: 15px;
             background-color: #252b38;
-            color: #61dafb;
+            color: #4fc3f7;
             margin-bottom: 20px;
         }
         table {
@@ -29,45 +29,55 @@
         }
         table th, table td {
             padding: 15px;
-            text-align: left;
             border-bottom: 1px solid #333;
         }
         table th {
             background-color: #333;
             color: #61dafb;
+            text-align: left;
+        }
+        table th.acao-header {
+            text-align: right;
+            padding-right: 50px;
+        }
+        .actions {
+            text-align: right;
         }
         .actions a {
             margin-right: 10px;
-            color: #61dafb;
+            color: #4fc3f7;
             text-decoration: none;
         }
         .actions a:hover {
-            color: #41a1d1;
+            color: #29b6f6;
+            cursor: pointer;
         }
         .btn {
             display: inline-block;
             margin: 10px;
             padding: 10px 20px;
-            background-color: #61dafb;
+            background-color: #4fc3f7;
             color: #1b1f2a;
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
         }
         .btn:hover {
-            background-color: #41a1d1;
+            background-color: #29b6f6;
         }
         .delete-btn {
-            background-color: #ff4d4d;
             color: white;
+
         }
         .delete-btn:hover {
-            background-color: #cc0000;
+            color: #29b6f6;
+            cursor: pointer;
+            
         }
     </style>
     <script>
         function confirmarExclusao() {
-            return confirm("Você tem certeza que deseja excluir este funcionário?");
+            return confirm("Tem certeza que deseja excluir este fornecedor?");
         }
     </script>
 </head>
@@ -76,8 +86,8 @@
         <h1>Funcionários</h1>
     </header>
     <div style="text-align: center;">
-        <a href="/dashboard/funcionarios/novo" class="btn">Adicionar Funcionário</a>
-        <a href="/dashboard" class="btn">Voltar</a>
+        <a href="funcionario_form.html" class="btn">Adicionar Funcionário</a>
+        <a href="dashboard.html" class="btn">Voltar</a>
     </div>
     <table>
         <thead>
@@ -86,18 +96,18 @@
                 <th>Nome</th>
                 <th>Email</th>
                 <th>Telefone</th>
-                <th>Ações</th>
+                <th class="acao-header">Ações</th>
             </tr>
         </thead>
         <tbody>
-            <tr th:each="funcionario : ${funcionarios}">
-                <td th:text="${funcionario.id}"></td>
-                <td th:text="${funcionario.nome}"></td>
-                <td th:text="${funcionario.email}"></td>
-                <td th:text="${funcionario.telefone}"></td>
+            <tr th:each="fornecedor : ${fornecedores}">
+                <td th:text="${fornecedor.id}"></td>
+                <td th:text="${fornecedor.nome}"></td>
+                <td th:text="${fornecedor.email}"></td>
+                <td th:text="${fornecedor.telefone}"></td>
                 <td class="actions">
-                    <a th:href="@{/dashboard/funcionarios/editar/{id}(id=${funcionario.id})}">Editar</a>
-                    <a th:href="@{/dashboard/funcionarios/deletar/{id}(id=${funcionario.id})}" class="delete-btn" onclick="return confirmarExclusao()">Excluir</a>
+                    <a th:href="@{/dashboard/fornecedores/editar/{id}(id=${fornecedor.id})}">Editar</a>
+                    <a th:href="@{/dashboard/fornecedores/deletar/{id}(id=${fornecedor.id})}" class="delete-btn" onclick="return confirmarExclusao()">Excluir</a>
                 </td>
             </tr>
         </tbody>

@@ -16,7 +16,7 @@
             text-align: center;
             padding: 15px;
             background-color: #252b38;
-            color: #61dafb;
+            color: #4fc3f7;
             margin-bottom: 20px;
         }
         table {
@@ -29,40 +29,50 @@
         }
         table th, table td {
             padding: 15px;
-            text-align: left;
             border-bottom: 1px solid #333;
         }
         table th {
             background-color: #333;
             color: #61dafb;
+            text-align: left;
+        }
+        table th.acao-header {
+            text-align: right;
+            padding-right: 50px;
+        }
+        .actions {
+            text-align: right;
         }
         .actions a {
             margin-right: 10px;
-            color: #61dafb;
+            color: #4fc3f7;
             text-decoration: none;
         }
         .actions a:hover {
-            color: #41a1d1;
+            color: #29b6f6;
+            cursor: pointer;
         }
         .btn {
             display: inline-block;
             margin: 10px;
             padding: 10px 20px;
-            background-color: #61dafb;
+            background-color: #4fc3f7;
             color: #1b1f2a;
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
         }
         .btn:hover {
-            background-color: #41a1d1;
+            background-color: #29b6f6;
         }
         .delete-btn {
-            background-color: #ff4d4d;
             color: white;
+
         }
         .delete-btn:hover {
-            background-color: #cc0000;
+            color: #29b6f6;
+            cursor: pointer;
+            
         }
     </style>
     <script>
@@ -76,8 +86,8 @@
         <h1>Produtos</h1>
     </header>
     <div style="text-align: center;">
-        <a href="/dashboard/produtos/novo" class="btn">Adicionar Produto</a>
-        <a href="/dashboard" class="btn">Voltar</a>
+        <a href="produto_form.html" class="btn">Adicionar Produto</a>
+        <a href="dashboard.html" class="btn">Voltar</a>
     </div>
     <table>
         <thead>
@@ -87,7 +97,7 @@
                 <th>Marca</th>
                 <th>Preço</th>
                 <th>Estoque</th>
-                <th>Ações</th>
+                <th class="acao-header">Ações</th>
             </tr>
         </thead>
         <tbody>
